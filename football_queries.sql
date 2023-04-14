@@ -64,7 +64,9 @@ SELECT * FROM Matches WHERE division_code = 'E0' ORDER BY (ftag + fthg, fthg) DE
 
 -- 10) In which division and which season were the most goals scored?
 
-SELECT  (division_code, season), SUM(ftag + fthg) AS total_score FROM Matches GROUP BY division_code, season ORDER BY total_score DESC LIMIT 1;
+SELECT  (division_code, season) FROM Matches
+GROUP BY division_code, season 
+ORDER BY SUM(ftag + fthg) DESC LIMIT 1;
 SELECT name FROM Divisions WHERE code = 'EC';
 
--- NAtional League, 2013
+-- National League, 2013
